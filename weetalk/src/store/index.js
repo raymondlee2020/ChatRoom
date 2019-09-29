@@ -6,7 +6,8 @@ Vue.use(Vuex);
 const vuex = new Vuex.Store({
     state: {
         isConnect: 'Unconnected',
-        userName: ''
+        userName: '',
+        onlineCount: ''
     },
     getters: {
         // checkLog: state => state.isLogin
@@ -17,6 +18,9 @@ const vuex = new Vuex.Store({
         },
         login(state, name) {
             state.userName = name;
+        },
+        refreshOnlineCount(state, value) {
+            state.onlineCount = value;
         }
     }
 });

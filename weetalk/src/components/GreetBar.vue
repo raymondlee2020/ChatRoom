@@ -7,19 +7,20 @@
 
 <script>
 export default {
-  name: 'GreetBar',
-  props: {
-    onlineCount: Number,
-  },
+  name: "GreetBar",
+  props: {},
   computed: {
     isConnect: function() {
       return this.$store.state.isConnect;
     },
     userName: function() {
       return this.$store.state.userName;
+    },
+    onlineCount: function() {
+      return this.$store.state.onlineCount;
     }
   }
-}
+};
 </script>
 
 <style scoped>

@@ -14,18 +14,15 @@ export default {
     GreetBar
   },
   sockets: {
-    message1: function(value) {
-      //alert(value);
-    },
     connect: function() {
-      console.log('Connect Success');
-    },
-    changeStatus: function() {
       this.$store.commit('connect');
       console.log('Connect Success');
     },
+    refreshOnlineCount: function(value) {
+      this.$store.commit('refreshOnlineCount', value);
+    },
     disconnect: function() {
-      console.log('test');
+      console.log('Disconnect');
     }
   }
 };
@@ -33,5 +30,6 @@ export default {
 
 <style>
 #app {
+  font-family: "Helvetica", "Arial","LiHei Pro","黑體-繁","微軟正黑體", sans-serif;
 }
 </style>

@@ -2,7 +2,7 @@
   <div id="loginblock">
     <h1>WeeTalk</h1>
     <form>
-      <input type="text" id="nameinput" placeholder="Your name." @change="test"/>
+      <input type="text" id="nameinput" v-model="userName" placeholder="Your name." />
       &nbsp;
       <input type="submit" value="Let's Chat！" @click="login"/>
     </form>
@@ -12,18 +12,16 @@
 <script>
 export default {
   name: "LoginBlock",
-  props: {},
-  computed: {
-    userName: () => document.getElementById("nameinput").value
+  data() {
+    return {
+      userName: ''
+    }
   },
   methods: {
-    test: function() {
-      console.log('change');
-      this.$socket.emit('changeStatus','123');
-    },
     login: function() {
       this.$router.push("/chat");
       this.$store.commit('login', this.userName);
+      this.$socket.emit('login', this.userName);
     }
   }
 };
